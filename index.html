@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Inspect, format, minify and optimize SVG files locally — nothing leaves your browser."
+    />
+    <title>SVG — local SVG inspector and optimizer</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0f14'/%3E%3Cpath d='M8 8v16h16' fill='none' stroke='%234cc2ff' stroke-width='3'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>SVG</h1>
+        <p class="tagline">
+          Inspect, format, minify and optimize SVG files locally — nothing leaves your browser.
+        </p>
+      </div>
+    </header>
+    <noscript class="noscript">JavaScript is required to use this tool.</noscript>
+    <main class="layout">
+      <section class="card source-card" aria-labelledby="source-title">
+        <h2 id="source-title">Source</h2>
+        <div class="source-label">
+          <label for="source">SVG markup</label><span id="source-size">—</span>
+        </div>
+        <textarea
+          id="source"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="Paste SVG markup here…"
+        ></textarea>
+        <div class="actions">
+          <button type="button" id="choose">Choose file</button
+          ><input id="file" type="file" accept=".svg,image/svg+xml" hidden /><button
+            type="button"
+            id="format"
+          >
+            Format</button
+          ><button type="button" id="minify">Minify</button
+          ><button type="button" id="optimize">Optimize</button
+          ><button type="button" id="clear">Clear</button>
+        </div>
+        <details>
+          <summary>Optimize options</summary>
+          <div id="options"></div>
+        </details>
+        <p id="error" class="error" role="alert" hidden></p>
+      </section>
+      <section class="card preview-card" aria-labelledby="preview-title">
+        <h2 id="preview-title">Preview</h2>
+        <div class="stage">
+          <span id="empty">Paste or upload an SVG to preview it.</span
+          ><iframe sandbox="" referrerpolicy="no-referrer" title="SVG preview"></iframe>
+        </div>
+      </section>
+      <section class="card inspect-card" aria-labelledby="inspect-title">
+        <h2 id="inspect-title">Inspect</h2>
+        <dl id="metadata" class="metadata"></dl>
+        <ul id="warnings" class="warnings" role="status"></ul>
+        <h3>Structure</h3>
+        <div id="tree" class="tree"></div>
+      </section>
+      <section class="card output-card" aria-labelledby="output-title">
+        <h2 id="output-title">Output</h2>
+        <p id="status" role="status">No output yet.</p>
+        <textarea id="output" readonly spellcheck="false"></textarea>
+        <div class="actions">
+          <button type="button" id="copy">Copy output</button
+          ><button type="button" id="download">Download</button
+          ><button type="button" id="use">Use as source</button>
+        </div>
+        <ul id="actions"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

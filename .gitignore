@@ -12,3 +12,6 @@ Thumbs.db
 /dist/
 /build/
 /bin/
+node_modules/
+coverage/
+*.log
